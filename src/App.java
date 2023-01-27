@@ -2,37 +2,31 @@ import java.util.Arrays;
 
 public class App {
 
-  public static void moveZerosToEnd(int[] arr) {
-    int count=0;
-    for (int i=0; i < arr.length; i++){
-      if(arr[i] !=0){
-        arr[count] = arr[i];
-        count++;
-      }
-    }  
-    while(count < arr.length){
-      arr[count] = 0;
-      count++;
+  public static void reverse(int[] arr) {
+    for(int i=0; i < arr.length / 2; i++){
+      int temp = arr[i];
+      arr[i]=arr[arr.length-1-i];
+      arr[arr.length-i-1] = temp;
     }
   }
   
   
   public static void main(String[] args) {
-    int[] arr = new int[]{1,1,0,0,0,1,0};
+    int[] arr = new int[]{1,2,3,4,5,6,7};
     System.out.println(Arrays.toString(arr));
-    moveZerosToEnd(arr);
+    reverse(arr);
     System.out.println(Arrays.toString(arr));
     System.out.println();
 
-    int[] arr2 = new int[] { 0, 0, 1, 2, 3, 0, 4 };
+    int[] arr2 = new int[] { 4, 1, 3, 6, 8, 2, 10 };
     System.out.println(Arrays.toString(arr2));
-    moveZerosToEnd(arr2);
+    reverse(arr2);
     System.out.println(Arrays.toString(arr2));
     System.out.println();
 
-    int[] arr3 = new int[] { 1, 0, 4, 4, 0, 0, 0 };
+    int[] arr3 = new int[] {};
     System.out.println(Arrays.toString(arr3));
-    moveZerosToEnd(arr3);
+    reverse(arr3);
     System.out.println(Arrays.toString(arr3));
     System.out.println();
 
