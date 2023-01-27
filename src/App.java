@@ -2,34 +2,39 @@ import java.util.Arrays;
 
 public class App {
 
-  public static Object[] rotateRight(Object[] arr) {
-    Object[] result=new Object[arr.length];
-    for(int i=0; i < arr.length; i++){
-     result[(i+1) % result.length] = arr[i];
+  public static void moveZerosToEnd(int[] arr) {
+    int count=0;
+    for (int i=0; i < arr.length; i++){
+      if(arr[i] !=0){
+        arr[count] = arr[i];
+        count++;
+      }
     }  
-    return result;  
+    while(count < arr.length){
+      arr[count] = 0;
+      count++;
+    }
   }
   
   
   public static void main(String[] args) {
-    Object[] arr= new Object[]{1,2,3,4,5};
-    arr= rotateRight(arr);
+    int[] arr = new int[]{1,1,0,0,0,1,0};
     System.out.println(Arrays.toString(arr));
-    arr= rotateRight(arr);
+    moveZerosToEnd(arr);
     System.out.println(Arrays.toString(arr));
-    arr= rotateRight(arr);
-    System.out.println(Arrays.toString(arr));
-    arr= rotateRight(arr);
-    System.out.println(Arrays.toString(arr));
-    arr= rotateRight(arr);
-    System.out.println(Arrays.toString(arr));
+    System.out.println();
 
-    Object[] arr2 = new Object[]{"Hello", "there", "my friend"};
-    arr2= rotateRight(arr2);
+    int[] arr2 = new int[] { 0, 0, 1, 2, 3, 0, 4 };
     System.out.println(Arrays.toString(arr2));
-    arr2= rotateRight(arr2);
+    moveZerosToEnd(arr2);
     System.out.println(Arrays.toString(arr2));
-    arr2= rotateRight(arr2);
-    System.out.println(Arrays.toString(arr2));
+    System.out.println();
+
+    int[] arr3 = new int[] { 1, 0, 4, 4, 0, 0, 0 };
+    System.out.println(Arrays.toString(arr3));
+    moveZerosToEnd(arr3);
+    System.out.println(Arrays.toString(arr3));
+    System.out.println();
+
   }
 }
